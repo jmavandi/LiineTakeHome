@@ -77,6 +77,9 @@ def open_restaurants(day, time):
             restaurant_open = hours_to_datetime(hours[day]['open'])
             restaurant_close = hours_to_datetime(hours[day]['close'])
 
+            if restaurant_close == datetime.strptime("00:00", "%H:%M").time():
+                restaurant_close = datetime.strptime("23:59", "%H:%M").time()
+
             if restaurant_open <= time_to_check <= restaurant_close:
                 open_restaurants_list.append(restaurant["name"])
 
