@@ -109,7 +109,7 @@ def run_web_server():
         return jsonify(open_restaurants(day_of_week, time))
 
     if __name__ == '__main__':
-        app.run(debug=True, port=8080)
+        app.run(debug=True, host='0.0.0.0', port=8080)
 
 csv_to_restaurant()
 run_web_server()
